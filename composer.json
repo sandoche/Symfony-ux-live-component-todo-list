@@ -1,10 +1,10 @@
 {
     "type": "project",
     "license": "proprietary",
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": ">=7.2.5",
+        "php": ">=8.0.11",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "composer/package-versions-deprecated": "1.11.99.4",
@@ -37,6 +37,8 @@
         "symfony/string": "5.3.*",
         "symfony/translation": "5.3.*",
         "symfony/twig-bundle": "5.3.*",
+        "symfony/ux-live-component": "1.4.x-dev",
+        "symfony/ux-twig-component": "1.4.x-dev",
         "symfony/validator": "5.3.*",
         "symfony/web-link": "5.3.*",
         "symfony/webpack-encore-bundle": "^1.12",
