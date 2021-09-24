@@ -17,6 +17,10 @@ class TodoList
   #[LiveProp(writable: true)]
   public string $newTask = '';
 
+  public $task;
+
+  public $form;
+
   private TaskRepository $taskRepository;
 
   public function __construct(TaskRepository $taskRepository)

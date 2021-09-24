@@ -1,5 +1,10 @@
 <div {{ init_live_component(this) }}>
+	{{ component('create_task_form', {
+        task: this.task,
+        form: this.form
+    }) }}
+
 	{% for task in this.tasks %}
-		{{ task.text }}
+		<br>{{ task.text }}
 	{% endfor %}
 </div>
