@@ -1,0 +1,5 @@
+<div {{ init_live_component(this) }}>
+	{% for task in this.tasks %}
+		{{ task.text }}
+	{% endfor %}
+</div>
