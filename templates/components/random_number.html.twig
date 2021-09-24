@@ -1,5 +1,15 @@
 <div {{ init_live_component(this) }}>
-	<strong>{{ this.randomNumber }}</strong>
+	<input type="number" value="{{ this.min }}" name="min" data-action="change->live#update">
 
-	<button data-action="live#$render">Generate a new number!</button>
+	<input type="number" value="{{ this.max }}" name="max" data-action="change->live#update">
+
+	Generating a number between
+	{{ this.min }}
+	and
+	{{ this.max }}
+
+	<div>
+		<span data-loading>Loading</span>
+		<strong data-loading="hide">{{ this.randomNumber }}</strong>
+	</div>
 </div>

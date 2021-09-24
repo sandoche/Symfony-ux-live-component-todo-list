@@ -13,10 +13,10 @@ class RandomNumberComponent
 
   use DefaultActionTrait;
 
-  #[LiveProp]
+  #[LiveProp(writable: true)]
   public int $min = 0;
 
-  #[LiveProp]
+  #[LiveProp(writable: true)]
   public int $max = 1000;
 
   public function getRandomNumber(): string
