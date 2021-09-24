@@ -10,6 +10,8 @@
 
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
-
+    <div>
+        {{ component('random_number', { min: 5, max: 500 }) }}
+    </div>
 </div>
 {% endblock %}
