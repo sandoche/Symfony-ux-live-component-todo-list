@@ -5,4 +5,5 @@
 ## Dev
 ```sh
 symfony server:start
+yarn encore dev-server
 ```
