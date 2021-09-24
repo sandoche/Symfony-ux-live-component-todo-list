@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
+use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\ComponentWithFormTrait;
 
 #[AsLiveComponent('create_task_form')]
@@ -41,5 +42,22 @@ class CreateTaskForm extends AbstractController
     function dehydrateTask()
     {
         $this->task = new Task();
+    }
+
+    #[LiveAction]
+    function save()
+    {
+        // shortcut to submit the form with form values
+        // if any validation fails, an exception is thrown automatically
+        // and the component will be re-rendered with the form errors
+        $this->submitForm();
+
+        /** @var Task $task */
+        $task = $this->getFormInstance()->getData();
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($task);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'Post saved!');
     }
 }

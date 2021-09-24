@@ -1,21 +1,11 @@
-<div
-    {{ init_live_component(this) }}
-    {#
-        Automatically catch all "change" events from the fields
-        below and re-render the component.
-
-        Another common value is "input", which renders whenever
-        the "input" event fires (e.g. as you type in a field).
-        Note: if you use "input", Symfony's form system trims empty
-        spaces. This means that if the user types a space, then waits,
-        the re-render will remove the space. Set the "trim" option
-        to false on any fields with this problem.
-    #}
-    data-action="change->live#update"
->
-    {{ form_start(this.form) }}
-        {{ form_row(this.form.text) }}
-
-        <button>Save</button>
-    {{ form_end(this.form) }}
+<div {{ init_live_component(this) }}>
+	{{ form_start(this.form, {
+    attr: {
+        'data-action': 'live#action',
+        'data-action-name': 'prevent|save'
+    }
+}) }}
+	{{ form_row(this.form.text) }}
+	<button type="submit">Create</button>
+	{{ form_end(this.form) }}
 </div>
