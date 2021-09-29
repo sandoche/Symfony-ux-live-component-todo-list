@@ -1,0 +1,3 @@
+<li {{ init_live_component(this) }} data-action="change->live#update">
+  <input type="checkbox" id="{{ this.task.id }}" {{ this.task.isDone ? 'checked' : '' }} data-action="live#action" data-action-name="toggleDone"><label  for="{{ this.task.id }}"> {{ this.task.text }}</label>
+</li>

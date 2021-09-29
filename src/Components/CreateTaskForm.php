@@ -53,6 +53,6 @@ class CreateTaskForm extends AbstractController
         $entityManager->persist($task);
         $entityManager->flush();
 
-        $this->addFlash('success', 'Post saved!');
+        $this->addFlash('success', 'Task created');
     }
 }

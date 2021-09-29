@@ -7,6 +7,8 @@
 
 
 	{% for task in this.tasks %}
-		<br>{{ task.text }}
+		{{ component('task_item', {
+        task: task
+    }) }}
 	{% endfor %}
 </div>

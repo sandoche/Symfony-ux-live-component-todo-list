@@ -35,6 +35,11 @@ class Task
      */
     private $isDone;
 
+    public function __construct()
+    {
+      $this->isDone = false;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
