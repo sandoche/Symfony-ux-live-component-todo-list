@@ -1,4 +1,4 @@
-<div {{ init_live_component(this) }} data-action="change->live#update">
+<div {{ init_live_component(this) }}>
 	{{ component('create_task_form', {
         task: this.task.id ? this.task : null,
         form: this.form
