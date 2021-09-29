@@ -14,22 +14,27 @@ class TodoList
 {
   use DefaultActionTrait;
 
-  #[LiveProp(writable: true)]
-  public string $newTask = '';
-
   public $task;
 
   public $form;
+
+  private $tasks;
 
   private TaskRepository $taskRepository;
 
   public function __construct(TaskRepository $taskRepository)
   {
-      $this->taskRepository = $taskRepository;
+    $this->taskRepository = $taskRepository;
   }
 
   public function getTasks(): array
   {
-    return $this->taskRepository->findAll();
+    $this->loadTasks();
+    return $this->tasks;
+  }
+
+  private function loadTasks()
+  {
+    $this->tasks = $this->taskRepository->findAll();
   }
 }
