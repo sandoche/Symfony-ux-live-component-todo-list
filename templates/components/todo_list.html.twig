@@ -4,6 +4,16 @@
         task: task,
         form: this.form
     }) }}
+	<div>
+		Filter:
+		<button value="all" data-model="filter" data-action="live#update">All</button>
+		|
+		<button value="not-done" data-model="filter" data-action="live#update">To do</button>
+		|
+		<button value="done" data-model="filter" data-action="live#update">Done</button>
+		|
+		{{ this.filter }}
+	</div>
 
 
 	{% for task in this.tasks %}

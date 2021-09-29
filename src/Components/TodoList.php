@@ -5,7 +5,8 @@ namespace App\Components;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\DefaultActionTrait;
 use App\Repository\TaskRepository;
-
+use Symfony\UX\LiveComponent\Attribute\LiveProp;
+use Symfony\UX\LiveComponent\Attribute\LiveAction;
 
 #[AsLiveComponent('todo_list')]
 class TodoList
@@ -17,6 +18,9 @@ class TodoList
   public $form;
 
   private $tasks;
+
+  #[LiveProp(writable: true)]
+  public $filter;
 
   private TaskRepository $taskRepository;
 
@@ -33,6 +37,12 @@ class TodoList
 
   private function loadTasks()
   {
-    $this->tasks = $this->taskRepository->findAll();
+    if ($this->filter == 'all') {
+      $this->tasks = $this->taskRepository->findAll();
+    } else {
+      $this->tasks = $this->taskRepository->findBy(
+        ['isDone' => $this->filter == 'done' ? true : false]
+      );
+    }
   }
 }
