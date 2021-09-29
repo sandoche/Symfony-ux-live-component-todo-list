@@ -16,7 +16,7 @@
 	</div>
 
 
-	{% for task in this.tasks %}
+	{% for task in this.tasks | reverse %}
 		{{ component('task_item', {
         task: task
     }) }}
