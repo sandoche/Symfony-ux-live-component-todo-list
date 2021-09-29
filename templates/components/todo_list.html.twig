@@ -1,8 +1,10 @@
-<div {{ init_live_component(this) }}>
+<div {{ init_live_component(this) }} data-poll>
+	{% set task = null %}
 	{{ component('create_task_form', {
-        task: this.task.id ? this.task : null,
+        task: task,
         form: this.form
     }) }}
+
 
 	{% for task in this.tasks %}
 		<br>{{ task.text }}
