@@ -27,7 +27,7 @@ class CreateTaskForm extends AbstractController
      * We set `fieldName: ''` so that this live prop doesn't collide
      * with that data. The value - initialFormData - could be anything.
      */
-    #[LiveProp(fieldName: 'initialFormData', dehydrateWith: 'dehydrateTask')]
+    #[LiveProp(fieldName: 'initialFormData')]
     public ?Task $task = null;
 
     /**
@@ -37,11 +37,6 @@ class CreateTaskForm extends AbstractController
     {
         // we can extend AbstractController to get the normal shortcuts
         return $this->createForm(TaskType::class, $this->task);
-    }
-
-    function dehydrateTask()
-    {
-        $this->task = new Task();
     }
 
     #[LiveAction]
